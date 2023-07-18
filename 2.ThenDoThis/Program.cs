@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace _2.Puzzle.Medium
 {
@@ -76,8 +77,54 @@ namespace _2.Puzzle.Medium
             var output = new List<List<string>>();
 
             // YOUR CODE GOES HERE
+            // Convert all strings to lowercase and remove whitespace
+            var cleanList = input.Select(s => s.ToLower().Replace(" ", "")).ToList();
+
+            while (cleanList.Count > 0)
+            {
+                string firstWord = cleanList[0];
+                var anagrams = new List<string> { firstWord };
+
+                // Find anagrams of the first word in the list
+                for (int i = 1; i < cleanList.Count; i++)
+                {
+                    if (AreAnagrams(firstWord, cleanList[i]))
+                    {
+                        anagrams.Add(cleanList[i]);
+                        cleanList.RemoveAt(i);
+                        i--; // Decrement i to account for the removed element
+                    }
+                }
+
+                // Remove the first word from the cleanList
+                cleanList.RemoveAt(0);
+
+                // Sort the anagrams list alphabetically and add it to the output
+                anagrams.Sort();
+                output.Add(anagrams);
+            }
+
+            // Sort the output list alphabetically based on the first element of each list
+            output.Sort((list1, list2) => string.Compare(list1[0], list2[0], StringComparison.OrdinalIgnoreCase));
+
 
             return output;
         }
+
+
+        private static bool AreAnagrams(string str1, string str2)
+        {
+            if (str1.Length != str2.Length)
+                return false;
+
+            char[] charArray1 = str1.ToCharArray();
+            char[] charArray2 = str2.ToCharArray();
+
+            Array.Sort(charArray1);
+            Array.Sort(charArray2);
+
+            return new string(charArray1).Equals(new string(charArray2), StringComparison.OrdinalIgnoreCase);
+        }
+
     }
 }

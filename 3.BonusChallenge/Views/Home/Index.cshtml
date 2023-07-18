@@ -1,6 +1,35 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagram Finder</title>
+</head>
+<body>
+    <h2>Simple List Anagrams</h2>
+    <div>
+        <input type="text" id="wordInput" placeholder="Enter words separated by commas" />
+        <button id="getAnagramsButton">Get Anagrams</button>
+    </div>
+    <div id="anagramResultDiv"></div>
 
+    @section scripts {
+        <script>
+            $(document).ready(function () {
+                var anagramModule = AnagramModule(); // Create an instance of the AnagramModule
 
-Make sure you have fully read the readme file included in this project
+                $("#getAnagramsButton").on("click", function () {
+                    var words = $("#wordInput").val().split(",").map(function (word) {
+                        return word.trim();
+                    });
+
+                    anagramModule.getAnagrams(words)
+                        .then(function (resultModel) {
+                            anagramModule.displayAnagrams(resultModel);
+                        });
+                });
+            });
+        </script>
+        }
+    </body>
+</html>

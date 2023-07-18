@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.BonusChallengeBLL", "3.BonusChallengeBLL\3.BonusChallengeBLL.csproj", "{5A1E2F29-07A6-44B0-91CD-D1E81814DABB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{93ADB5D1-F2DA-4759-B900-4A50306C48AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93ADB5D1-F2DA-4759-B900-4A50306C48AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93ADB5D1-F2DA-4759-B900-4A50306C48AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A1E2F29-07A6-44B0-91CD-D1E81814DABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A1E2F29-07A6-44B0-91CD-D1E81814DABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A1E2F29-07A6-44B0-91CD-D1E81814DABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A1E2F29-07A6-44B0-91CD-D1E81814DABB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
